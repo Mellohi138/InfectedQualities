@@ -1,0 +1,3 @@
+displayName = Infected Qualities
+author = Mellohi
+version = 1.0

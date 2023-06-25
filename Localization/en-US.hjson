@@ -1,0 +1,122 @@
+Mods: {
+	InfectedQualities: {
+		Items: {
+			DivinePowder: {
+				DisplayName: Divine Powder
+				Tooltip: Blesses the world
+			}
+
+			LimeSolution: {
+				DisplayName: Lime Solution
+				Tooltip:
+					'''
+					Used by the Clentaminator
+					Spreads the Jungle
+					'''
+			}
+
+			PylonOfNight: {
+				DisplayName: Pylon of Night
+				Tooltip:
+					'''
+					Teleport to another pylon, NPCs are not a requirement
+					Can only function in the Corruption or the Crimson
+					You can only place one per type and in one of the matching biomes
+					'''
+			}
+
+			KeyOfNaught.DisplayName: Key Of Naught
+
+			CorruptSnow: {
+				DisplayName: Unholy Snow
+				Tooltip: ""
+			}
+
+			CrimsonSnow: {
+				DisplayName: Clotted Blood
+				Tooltip: ""
+			}
+
+			HallowedSnow: {
+				DisplayName: Holy Snow
+				Tooltip: ""
+			}
+		}
+
+		Projectiles: {
+			LimeSpray.DisplayName: Lime Spray
+			DivineDust.DisplayName: Divine Dust
+		}
+
+		Biomes: {
+			CorruptJungle: {
+				DisplayName: Corrupt Jungle
+				TownNPCDialogueName: the Corrupt Jungle
+			}
+
+			CrimsonJungle: {
+				DisplayName: Crimson Jungle
+				TownNPCDialogueName: the Crimson Jungle
+			}
+
+			HallowedJungle: {
+				DisplayName: Hallowed Jungle
+				TownNPCDialogueName: the Hallowed Jungle
+			}
+		}
+
+		Misc.ChasmPurifyMessage: The chasms have been cleansed.
+
+		Config: {
+			Title: {
+				Main: Main Configuration
+				Content: Content Configuration
+				Tweaks: Tweak Configuration
+			}
+
+			InfectedJungleBiomes: {
+				Label: Infected Jungle Biomes
+				Tooltip:
+					'''
+					Enables Corrupt, Crimson, and Hallowed Jungle biomes
+					Disabling this option removes all new content related to said biomes
+					'''
+			}
+
+			InfectedSnowBiomes: {
+				Label: Infected Snow Biomes
+				Tooltip: Adds new content to Corrupt, Crimson, and Hallowed Snow biomes, ranging from a new snow variant to new enemies
+			}
+
+			LimeSolution: {
+				Label: Jungle Terraforming
+				Tooltip: Enables lime solution, allowing the clentaminator to create and destroy jungle biomes
+			}
+
+			PylonOfNight: {
+				Label: Pylon of Night
+				Tooltip: Enables pylon of night, allowing the player to teleport to corruption and crimson through the pylon system
+			}
+
+			KeyOfNaught: {
+				Label: Key of Naught
+				Tooltip: Enables key of naught, allowing the player to spawn in the mimic of the evil biome that was not chosen
+			}
+
+			DivinePowder: {
+				Label: Divine Powder
+				Tooltip: Enables divine powder, allowing the player to create and purify the hallow biome through powders
+			}
+
+			HardmodChasmPurification: {
+				Label: Hardmode Chasm Cleansing
+				Tooltip: Cleans the corrupt and crimson chasms upon the start of hardmode, this takes place before the V-shape generates.
+			}
+
+			RemoveThorns: {
+				Label: Remove Thorns
+				Tooltip: Removes every thorn block near the player, Plantera's thorns are not affected
+			}
+		}
+	}
+}
