@@ -327,19 +327,12 @@ namespace InfectedQualities.Common.GlobalTiles
             };
         }
 
-        public override void SetStaticDefaults()
-        {
-            Main.tileMerge[TileID.SnowBlock][TileID.CorruptIce] = true;
-            Main.tileMerge[TileID.SnowBlock][TileID.FleshIce] = true;
-            Main.tileMerge[TileID.SnowBlock][TileID.HallowedIce] = true;
-        }
-
         public override bool TileFrame(int i, int j, int type, ref bool resetFrame, ref bool noBreak)
         {
             if (type == TileID.CorruptIce || type == TileID.FleshIce || type == TileID.HallowedIce)
             {
                 TileFramer.GetTileSurroundings(i, j, out int upLeft, out int up, out int upRight, out int left, out int right, out int downLeft, out int down, out int downRight);
-                WorldGen.TileMergeAttempt(-2, TileID.Sets.Snow, ref up, ref down, ref left, ref right, ref upLeft, ref upRight, ref downLeft, ref downRight);
+                TileFramer.TileMergeAttempt(-2, TileID.Sets.Snow, TileID.SnowBlock, ref up, ref down, ref left, ref right, ref upLeft, ref upRight, ref downLeft, ref downRight);
                 TileFramer.CustomTileFrame(i, j, ref upLeft, ref up, ref upRight, ref left, ref right, ref downLeft, ref down, ref downRight, resetFrame);
                 return false;
             }

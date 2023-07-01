@@ -654,6 +654,49 @@ namespace InfectedQualities.Helpers
             }
         }
 
+        public static void TileMergeAttempt(int myType, bool[] lookfor, ushort exclude, ref int up, ref int down, ref int left, ref int right, ref int upLeft, ref int upRight, ref int downLeft, ref int downRight)
+        {
+            if (up > -1 && lookfor[up] && up != exclude)
+            {
+                up = myType;
+            }
+
+            if (down > -1 && lookfor[down] && down != exclude)
+            {
+                down = myType;
+            }
+
+            if (left > -1 && lookfor[left] && left != exclude)
+            {
+                left = myType;
+            }
+
+            if (right > -1 && lookfor[right] && right != exclude)
+            {
+                right = myType;
+            }
+
+            if (upLeft > -1 && lookfor[upLeft] && upLeft != exclude)
+            {
+                upLeft = myType;
+            }
+
+            if (upRight > -1 && lookfor[upRight] && upRight != exclude)
+            {
+                upRight = myType;
+            }
+
+            if (downLeft > -1 && lookfor[downLeft] && downLeft != exclude)
+            {
+                downLeft = myType;
+            }
+
+            if (downRight > -1 && lookfor[downRight] && downRight != exclude)
+            {
+                downRight = myType;
+            }
+        }
+
         public static void TileMergeAttemptFrametest(int i, int j, int myType, int lookfor, ref int up, ref int down, ref int left, ref int right, ref int upLeft, ref int upRight, ref int downLeft, ref int downRight)
         {
             if (up == lookfor)
