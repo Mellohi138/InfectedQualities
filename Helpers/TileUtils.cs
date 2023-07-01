@@ -193,7 +193,7 @@ namespace InfectedQualities.Helpers
                         };
 
                         ushort[][] convertedTiles = {
-                            new ushort[] { TileID.CorruptJungleGrass, TileID.CrimsonJungleGrass, TileID.JungleGrass },
+                            new ushort[] { TileID.JungleGrass, TileID.JungleGrass, TileID.JungleGrass },
                             new ushort[] { TileID.SnowBlock, TileID.SnowBlock, TileID.SnowBlock },
                         };
 
