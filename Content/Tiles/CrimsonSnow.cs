@@ -80,11 +80,9 @@ namespace InfectedQualities.Content.Tiles
         public override bool TileFrame(int i, int j, ref bool resetFrame, ref bool noBreak)
         {
             TileFramer.GetTileSurroundings(i, j, out int upLeft, out int up, out int upRight, out int left, out int right, out int downLeft, out int down, out int downRight);
+            WorldGen.TileMergeAttempt(Type, Main.tileBrick, TileID.Sets.Ices, ref up, ref down, ref left, ref right, ref upLeft, ref upRight, ref downLeft, ref downRight);
             TileFramer.TileMergeAttemptFrametest(i, j, Type, TileID.Sets.IcesSlush, ref up, ref down, ref left, ref right, ref upLeft, ref upRight, ref downLeft, ref downRight);
-            if (down == TileID.Stalactite)
-            {
-                down = Type;
-            }
+            if (down == TileID.Stalactite) down = Type;
             TileFramer.CustomTileFrame(i, j, ref upLeft, ref up, ref upRight, ref left, ref right, ref downLeft, ref down, ref downRight, resetFrame);
             return false;
         }
