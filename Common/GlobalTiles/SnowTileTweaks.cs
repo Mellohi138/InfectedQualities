@@ -125,28 +125,7 @@ namespace InfectedQualities.Common.GlobalTiles
                 if (cursor.TryGotoNext(MoveType.After, i => i.MatchLdcI4(TileID.FleshIce)))
                 {
                     cursor.Emit(OpCodes.Pop);
-                    cursor.Emit(OpCodes.Ldc_I4_M1);
-
-                    cursor.Index++;
-
-                    label = cursor.DefineLabel();
-
-                    cursor.Emit(OpCodes.Ldsflda, typeof(Main).GetField("tile"));
-                    cursor.Emit(OpCodes.Ldarg_0);
-                    cursor.Emit(OpCodes.Ldarg_1);
-                    cursor.Emit(OpCodes.Ldc_I4_1);
-                    cursor.Emit(OpCodes.Add);
-                    cursor.Emit(OpCodes.Call, typeof(Tilemap).GetMethod("get_Item", new Type[] { typeof(int), typeof(int) }));
-                    cursor.Emit(OpCodes.Stloc_2);
-                    cursor.Emit(OpCodes.Ldloca, 2);
-                    cursor.Emit(OpCodes.Call, typeof(Tile).GetMethod("get_TileType"));
-                    cursor.Emit(OpCodes.Ldind_U2);
                     cursor.EmitDelegate(() => ModContent.TileType<HallowedSnow>());
-                    cursor.Emit(OpCodes.Beq, label);
-
-                    cursor.Index += 2;
-
-                    cursor.MarkLabel(label);
                 }
             };
 
@@ -231,28 +210,7 @@ namespace InfectedQualities.Common.GlobalTiles
                 if (cursor.TryGotoNext(MoveType.After, i => i.MatchLdcI4(TileID.FleshIce)))
                 {
                     cursor.Emit(OpCodes.Pop);
-                    cursor.Emit(OpCodes.Ldc_I4_M1);
-
-                    cursor.Index++;
-
-                    label = cursor.DefineLabel();
-
-                    cursor.Emit(OpCodes.Ldsflda, typeof(Main).GetField("tile"));
-                    cursor.Emit(OpCodes.Ldarg_0);
-                    cursor.Emit(OpCodes.Ldarg_1);
-                    cursor.Emit(OpCodes.Ldc_I4_1);
-                    cursor.Emit(OpCodes.Add);
-                    cursor.Emit(OpCodes.Call, typeof(Tilemap).GetMethod("get_Item", new Type[] { typeof(int), typeof(int) }));
-                    cursor.Emit(OpCodes.Stloc_0);
-                    cursor.Emit(OpCodes.Ldloca, 0);
-                    cursor.Emit(OpCodes.Call, typeof(Tile).GetMethod("get_TileType"));
-                    cursor.Emit(OpCodes.Ldind_U2);
                     cursor.EmitDelegate(() => ModContent.TileType<HallowedSnow>());
-                    cursor.Emit(OpCodes.Beq, label);
-
-                    cursor.Index += 2;
-
-                    cursor.MarkLabel(label);
                 }
             };
 
