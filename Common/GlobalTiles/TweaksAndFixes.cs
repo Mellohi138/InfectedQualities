@@ -268,10 +268,8 @@ namespace InfectedQualities.Common.GlobalTiles
             {
                 if (TileID.Sets.Conversion.Thorn[type] && type != TileID.PlanteraThorns)
                 {
-					Tile tile = Main.tile[i, j];
-					tile.HasTile = false;
-					tile.TileType = 0;
-					WorldGen.SquareTileFrame(i, j);
+                    WorldGen.KillTile(i, j);
+                    NetMessage.SendData(MessageID.TileManipulation, -1, -1, null, 0, i, j);
                 }
             }
         }
