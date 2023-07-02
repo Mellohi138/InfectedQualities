@@ -14,7 +14,7 @@ namespace InfectedQualities.Common.GlobalTiles
     {
         public override bool IsLoadingEnabled(Mod mod)
         {
-            return ModContent.GetInstance<InfectedQualitiesConfig>().EnableInfectedSnowBiomes;
+            return ModContent.GetInstance<InfectedQualitiesConfig.ServerConfig>().EnableInfectedSnowBiomes;
         }
 
         public override void Load()
@@ -286,57 +286,65 @@ namespace InfectedQualities.Common.GlobalTiles
             {
                 ILCursor cursor = new(il);
 
-                ILLabel label = cursor.DefineLabel();
-
                 if (cursor.TryGotoNext(MoveType.After, i => i.MatchLdcI4(TileID.FleshIce)))
                 {
+                    ILLabel label = cursor.DefineLabel();
+
                     cursor.Emit(OpCodes.Beq, label);
                     cursor.Emit(OpCodes.Ldarg_3);
                     cursor.Emit(OpCodes.Ldind_I4);
                     cursor.EmitDelegate(() => ModContent.TileType<CrimsonSnow>());
+
                     cursor.Index++;
+                    cursor.MarkLabel(label);
                 }
-
-                cursor.MarkLabel(label);
-
-                label = cursor.DefineLabel();
 
                 if (cursor.TryGotoNext(MoveType.After, i => i.MatchLdcI4(TileID.HallowedIce)))
                 {
+                    ILLabel label = cursor.DefineLabel();
+
                     cursor.Emit(OpCodes.Beq, label);
                     cursor.Emit(OpCodes.Ldarg_3);
                     cursor.Emit(OpCodes.Ldind_I4);
                     cursor.EmitDelegate(() => ModContent.TileType<HallowedSnow>());
+
                     cursor.Index++;
+                    cursor.MarkLabel(label);
                 }
-
-                cursor.MarkLabel(label);
-
-                label = cursor.DefineLabel();
 
                 if (cursor.TryGotoNext(MoveType.After, i => i.MatchLdcI4(TileID.CorruptIce)))
                 {
+                    ILLabel label = cursor.DefineLabel();
+
                     cursor.Emit(OpCodes.Beq, label);
                     cursor.Emit(OpCodes.Ldarg_3);
                     cursor.Emit(OpCodes.Ldind_I4);
                     cursor.EmitDelegate(() => ModContent.TileType<CorruptSnow>());
-                    cursor.Index++;
-                }
 
-                cursor.MarkLabel(label);
+                    cursor.Index++;
+                    cursor.MarkLabel(label);
+                }
             };
         }
 
         public override bool TileFrame(int i, int j, int type, ref bool resetFrame, ref bool noBreak)
         {
-            if (type == TileID.CorruptIce || type == TileID.FleshIce || type == TileID.HallowedIce)
+            if(ModContent.GetInstance<InfectedQualitiesConfig.ClientConfig>().EnableSmoothSnowIceBlending)
             {
-                TileFramer.GetTileSurroundings(i, j, out int upLeft, out int up, out int upRight, out int left, out int right, out int downLeft, out int down, out int downRight);
-                WorldGen.TileMergeAttempt(type, Main.tileBrick, TileID.Sets.Snow, ref up, ref down, ref left, ref right, ref upLeft, ref upRight, ref downLeft, ref downRight);
-                TileFramer.TileMergeAttempt(-2, TileID.Sets.Snow, TileID.SnowBlock, ref up, ref down, ref left, ref right, ref upLeft, ref upRight, ref downLeft, ref downRight);
-                if (down == TileID.Stalactite) down = type;
-                TileFramer.CustomTileFrame(i, j, ref upLeft, ref up, ref upRight, ref left, ref right, ref downLeft, ref down, ref downRight, resetFrame);
-                return false;
+                if (type == TileID.CorruptIce || type == TileID.FleshIce || type == TileID.HallowedIce)
+                {
+                    TileFramer.GetTileSurroundings(i, j, out int upLeft, out int up, out int upRight, out int left, out int right, out int downLeft, out int down, out int downRight);
+
+                    WorldGen.TileMergeAttempt(type, Main.tileBrick, TileID.Sets.Snow, ref up, ref down, ref left, ref right, ref upLeft, ref upRight, ref downLeft, ref downRight);
+                    TileFramer.TileMergeAttempt(-2, TileID.Sets.Snow, TileID.SnowBlock, ref up, ref down, ref left, ref right, ref upLeft, ref upRight, ref downLeft, ref downRight);
+                    if (down == TileID.Stalactite)
+                    {
+                        down = type;
+                    }
+
+                    TileFramer.CustomTileFrame(i, j, ref upLeft, ref up, ref upRight, ref left, ref right, ref downLeft, ref down, ref downRight, resetFrame);
+                    return false;
+                }
             }
             return true;
         }

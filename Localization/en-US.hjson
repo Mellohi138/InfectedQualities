@@ -69,7 +69,11 @@ Mods: {
 
 		Config: {
 			Title: {
-				Main: Main Configuration
+				Main: {
+					Client: Client-Side Configuration
+					Server: Global Configuration
+				}
+
 				Content: Content Configuration
 				Tweaks: Tweak Configuration
 			}
@@ -116,6 +120,16 @@ Mods: {
 			RemoveThorns: {
 				Label: Remove Thorns
 				Tooltip: Removes every thorn block near the player, Plantera's thorns are not affected
+			}
+
+			SmoothSnowIceBlending: {
+				Label: Enable Smooth Infected Snow-Ice Blending
+				Tooltip:
+					'''
+					Makes infected snow and ice blocks blend in the traditional way normal snow and ice does instead of using sharp edges that may feel jarring
+					Unless you use a resource pack specifically designed to prevent this enabling it will cause blue borders to from around the ice blocks
+					This config does nothing if infected snow biomes are not enabled
+					'''
 			}
 		}
 	}

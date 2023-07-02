@@ -9,7 +9,7 @@ namespace InfectedQualities.Common.ModSystems
     {
         public override void PostAddRecipes()
         {
-            if (ModContent.GetInstance<InfectedQualitiesConfig>().EnableKeyOfNaught)
+            if (ModContent.GetInstance<InfectedQualitiesConfig.ServerConfig>().EnableKeyOfNaught)
             {
                 for (int i = 0; i < Recipe.numRecipes; i++)
                 {

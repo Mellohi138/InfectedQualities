@@ -104,12 +104,12 @@ namespace InfectedQualities.Helpers
                             new ushort[] { TileID.CorruptIce, TileID.FleshIce, TileID.HallowedIce }
                         };
 
-                        if (ModContent.GetInstance<InfectedQualitiesConfig>().EnableInfectedJungleBiomes)
+                        if (ModContent.GetInstance<InfectedQualitiesConfig.ServerConfig>().EnableInfectedJungleBiomes)
                         {
                             convertedTiles[3][2] = (ushort)ModContent.TileType<HallowedJungleGrass>();
                         }
 
-                        if (ModContent.GetInstance<InfectedQualitiesConfig>().EnableInfectedSnowBiomes)
+                        if (ModContent.GetInstance<InfectedQualitiesConfig.ServerConfig>().EnableInfectedSnowBiomes)
                         {
                             convertedTiles[7][0] = (ushort)ModContent.TileType<CorruptSnow>();
                             convertedTiles[7][1] = (ushort)ModContent.TileType<CrimsonSnow>();
@@ -197,12 +197,12 @@ namespace InfectedQualities.Helpers
                             new ushort[] { TileID.SnowBlock, TileID.SnowBlock, TileID.SnowBlock },
                         };
 
-                        if (ModContent.GetInstance<InfectedQualitiesConfig>().EnableInfectedJungleBiomes)
+                        if (ModContent.GetInstance<InfectedQualitiesConfig.ServerConfig>().EnableInfectedJungleBiomes)
                         {
                             convertedTiles[0][2] = (ushort)ModContent.TileType<HallowedJungleGrass>();
                         }
 
-                        if (ModContent.GetInstance<InfectedQualitiesConfig>().EnableInfectedSnowBiomes)
+                        if (ModContent.GetInstance<InfectedQualitiesConfig.ServerConfig>().EnableInfectedSnowBiomes)
                         {
                             convertedTiles[1][0] = (ushort)ModContent.TileType<CorruptSnow>();
                             convertedTiles[1][1] = (ushort)ModContent.TileType<CrimsonSnow>();

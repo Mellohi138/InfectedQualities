@@ -12,6 +12,39 @@ namespace InfectedQualities.Helpers
         public static bool mergeLeft;
         public static bool mergeRight;
 
+        public static void ApplyTileMerge(ushort tileFrom, ushort tileTo, bool merge = true)
+        {
+            Main.tileMerge[tileFrom][tileTo] = merge;
+            Main.tileMerge[tileTo][tileFrom] = merge;
+        }
+
+        public static void ApplyTileMerge(ushort tileFrom, ushort[] tileToList, bool merge = true)
+        {
+            for(int i = 0; i < tileToList.Length; i++)
+            {
+                ushort tileTo = tileToList[i];
+
+                Main.tileMerge[tileFrom][tileTo] = merge;
+                Main.tileMerge[tileTo][tileFrom] = merge;
+            }
+        }
+
+        public static void ApplyTileMerge(ushort[] tileFromList, ushort[] tileToList, bool merge = true)
+        {
+            for (int i = 0; i < tileFromList.Length; i++)
+            {
+                ushort tileFrom = tileFromList[i];
+
+                for (int j = 0; j < tileToList.Length; j++)
+                {
+                    ushort tileTo = tileToList[j];
+
+                    Main.tileMerge[tileFrom][tileTo] = merge;
+                    Main.tileMerge[tileTo][tileFrom] = merge;
+                }
+            }
+        }
+
         public static void GetTileSurroundings(int i, int j, out int upLeft, out int up, out int upRight, out int left, out int right, out int downLeft, out int down, out int downRight)
         {
             Tile tile = Main.tile[i, j];

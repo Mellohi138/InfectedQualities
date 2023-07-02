@@ -9,7 +9,7 @@ namespace InfectedQualities.Common
     {
         public override void SetStaticDefaults()
         {
-            if (ModContent.GetInstance<InfectedQualitiesConfig>().EnableLimeSolution)
+            if (ModContent.GetInstance<InfectedQualitiesConfig.ServerConfig>().EnableLimeSolution)
             {
                 WallID.Sets.Conversion.Dirt[WallID.Cave6Unsafe] = true;
                 WallID.Sets.Conversion.Dirt[WallID.Cave6Echo] = true;
@@ -29,7 +29,7 @@ namespace InfectedQualities.Common
         {
             if (type == WallID.HallowedGrassUnsafe)
             {
-                if (ModContent.GetInstance<InfectedQualitiesConfig>().EnableInfectedJungleBiomes)
+                if (ModContent.GetInstance<InfectedQualitiesConfig.ServerConfig>().EnableInfectedJungleBiomes)
                 {
                     if (WorldGen.AllowedToSpreadInfections)
                     {

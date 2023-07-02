@@ -26,7 +26,7 @@ namespace InfectedQualities.Content.Tiles.Plants
         {
             GrowsOnTileId = new int[]
             {
-                ModContent.GetInstance<InfectedQualitiesConfig>().EnableInfectedSnowBiomes ? ModContent.TileType<CorruptSnow>() : -1
+                ModContent.GetInstance<InfectedQualitiesConfig.ServerConfig>().EnableInfectedSnowBiomes ? ModContent.TileType<CorruptSnow>() : -1
             };
         }
 

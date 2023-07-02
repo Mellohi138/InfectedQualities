@@ -8,7 +8,7 @@ namespace InfectedQualities.Content.Tiles.TileEntities
     {
         public override bool IsLoadingEnabled(Mod mod)
         {
-            return ModContent.GetInstance<InfectedQualitiesConfig>().EnablePylonOfNight;
+            return ModContent.GetInstance<InfectedQualitiesConfig.ServerConfig>().EnablePylonOfNight;
         }
     }
 }

@@ -26,8 +26,8 @@ namespace InfectedQualities.Content.Tiles.Plants
         {
             GrowsOnTileId = new int[] 
             {
-                ModContent.GetInstance<InfectedQualitiesConfig>().EnableInfectedJungleBiomes ? ModContent.TileType<HallowedJungleGrass>() : -1,
-                ModContent.GetInstance<InfectedQualitiesConfig>().EnableInfectedSnowBiomes ? ModContent.TileType<HallowedSnow>() : -1
+                ModContent.GetInstance<InfectedQualitiesConfig.ServerConfig>().EnableInfectedJungleBiomes ? ModContent.TileType<HallowedJungleGrass>() : -1,
+                ModContent.GetInstance<InfectedQualitiesConfig.ServerConfig>().EnableInfectedSnowBiomes ? ModContent.TileType<HallowedSnow>() : -1
             };
         }
 

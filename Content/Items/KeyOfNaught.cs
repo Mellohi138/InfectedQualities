@@ -2,7 +2,6 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
-using Terraria.Map;
 using Terraria.ModLoader;
 
 namespace InfectedQualities.Content.Items
@@ -11,7 +10,7 @@ namespace InfectedQualities.Content.Items
     {
         public override bool IsLoadingEnabled(Mod mod)
         {
-            return ModContent.GetInstance<InfectedQualitiesConfig>().EnableKeyOfNaught;
+            return ModContent.GetInstance<InfectedQualitiesConfig.ServerConfig>().EnableKeyOfNaught;
         }
 
         public override string Texture => "InfectedQualities/Client/Assets/Items/KeyOfNaught";

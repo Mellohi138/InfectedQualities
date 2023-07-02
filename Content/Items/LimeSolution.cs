@@ -7,7 +7,7 @@ namespace InfectedQualities.Content.Items
     {
         public override bool IsLoadingEnabled(Mod mod)
         {
-            return ModContent.GetInstance<InfectedQualitiesConfig>().EnableLimeSolution;
+            return ModContent.GetInstance<InfectedQualitiesConfig.ServerConfig>().EnableLimeSolution;
         }
 
         public override string Texture => "InfectedQualities/Client/Assets/Items/LimeSolution";

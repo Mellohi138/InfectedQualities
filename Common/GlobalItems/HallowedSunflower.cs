@@ -11,7 +11,7 @@ namespace InfectedQualities.Common.GlobalItems
     {
         public override bool IsLoadingEnabled(Mod mod)
         {
-            return ModContent.GetInstance<InfectedQualitiesConfig>().EnableInfectedJungleBiomes;
+            return ModContent.GetInstance<InfectedQualitiesConfig.ServerConfig>().EnableInfectedJungleBiomes;
         }
 
         public override bool? UseItem(Item item, Player player)

@@ -12,7 +12,7 @@ namespace InfectedQualities.Content.Tiles
     {
         public override bool IsLoadingEnabled(Mod mod)
         {
-            return ModContent.GetInstance<InfectedQualitiesConfig>().EnableInfectedJungleBiomes;
+            return ModContent.GetInstance<InfectedQualitiesConfig.ServerConfig>().EnableInfectedJungleBiomes;
         }
 
         public override string Texture => "InfectedQualities/Client/Assets/Tiles/HallowedJungleGrass";

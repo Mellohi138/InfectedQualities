@@ -28,7 +28,7 @@ namespace InfectedQualities.Common.GlobalProjectiles
                         {
                             if (!TileID.Sets.Conversion.MushroomGrass[Framing.GetTileSafely(j, k).TileType] && !TileUtils.IDSets.WallMushroom[Framing.GetTileSafely(j, k).WallType])
                             {
-                                if(ModContent.GetInstance<InfectedQualitiesConfig>().EnableDivinePowder || !TileID.Sets.Hallow[Framing.GetTileSafely(j, k).TileType])
+                                if(ModContent.GetInstance<InfectedQualitiesConfig.ServerConfig>().EnableDivinePowder || !TileID.Sets.Hallow[Framing.GetTileSafely(j, k).TileType])
                                 {
                                     WorldGen.Convert(j, k, BiomeConversionID.Purity, 0);
                                 }

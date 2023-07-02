@@ -12,7 +12,7 @@ namespace InfectedQualities.Content.Tiles
     {
         public override bool IsLoadingEnabled(Mod mod)
         {
-            return ModContent.GetInstance<InfectedQualitiesConfig>().EnableInfectedSnowBiomes;
+            return ModContent.GetInstance<InfectedQualitiesConfig.ServerConfig>().EnableInfectedSnowBiomes;
         }
 
         public override string Texture => "InfectedQualities/Client/Assets/Tiles/CrimsonSnow";
@@ -24,6 +24,10 @@ namespace InfectedQualities.Content.Tiles
             Main.tileBrick[Type] = true;
             Main.tileMergeDirt[Type] = true;
             Main.tileMerge[TileID.Dirt][Type] = true;
+            if (!ModContent.GetInstance<InfectedQualitiesConfig.ClientConfig>().EnableSmoothSnowIceBlending)
+            {
+                TileFramer.ApplyTileMerge(Type, TileID.FleshIce);
+            }
 
             TileID.Sets.CanBeDugByShovel[Type] = true;
             TileID.Sets.CanBeClearedDuringOreRunner[Type] = true;
@@ -79,12 +83,21 @@ namespace InfectedQualities.Content.Tiles
 
         public override bool TileFrame(int i, int j, ref bool resetFrame, ref bool noBreak)
         {
-            TileFramer.GetTileSurroundings(i, j, out int upLeft, out int up, out int upRight, out int left, out int right, out int downLeft, out int down, out int downRight);
-            WorldGen.TileMergeAttempt(Type, Main.tileBrick, TileID.Sets.Ices, ref up, ref down, ref left, ref right, ref upLeft, ref upRight, ref downLeft, ref downRight);
-            TileFramer.TileMergeAttemptFrametest(i, j, Type, TileID.Sets.IcesSlush, ref up, ref down, ref left, ref right, ref upLeft, ref upRight, ref downLeft, ref downRight);
-            if (down == TileID.Stalactite) down = Type;
-            TileFramer.CustomTileFrame(i, j, ref upLeft, ref up, ref upRight, ref left, ref right, ref downLeft, ref down, ref downRight, resetFrame);
-            return false;
+            if (ModContent.GetInstance<InfectedQualitiesConfig.ClientConfig>().EnableSmoothSnowIceBlending)
+            {
+                TileFramer.GetTileSurroundings(i, j, out int upLeft, out int up, out int upRight, out int left, out int right, out int downLeft, out int down, out int downRight);
+
+                WorldGen.TileMergeAttempt(Type, Main.tileBrick, TileID.Sets.Ices, ref up, ref down, ref left, ref right, ref upLeft, ref upRight, ref downLeft, ref downRight);
+                TileFramer.TileMergeAttemptFrametest(i, j, Type, TileID.Sets.IcesSlush, ref up, ref down, ref left, ref right, ref upLeft, ref upRight, ref downLeft, ref downRight);
+                if (down == TileID.Stalactite)
+                {
+                    down = Type;
+                }
+
+                TileFramer.CustomTileFrame(i, j, ref upLeft, ref up, ref upRight, ref left, ref right, ref downLeft, ref down, ref downRight, resetFrame);
+                return false;
+            }
+            return true;
         }
     }
 }

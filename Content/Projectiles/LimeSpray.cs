@@ -13,7 +13,7 @@ namespace InfectedQualities.Content.Projectiles
     {
         public override bool IsLoadingEnabled(Mod mod)
         {
-            return ModContent.GetInstance<InfectedQualitiesConfig>().EnableLimeSolution;
+            return ModContent.GetInstance<InfectedQualitiesConfig.ServerConfig>().EnableLimeSolution;
         }
 
         private static Color dustColor;
