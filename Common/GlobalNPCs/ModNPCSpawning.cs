@@ -50,7 +50,7 @@ namespace InfectedQualities.Common.GlobalNPCs
 
             if (ModContent.GetInstance<InfectedQualitiesConfig.ServerConfig>().EnableInfectedSnowBiomes)
             {
-                if(!spawnInfo.PlayerInTown && spawnInfo.Player.ZoneSnow)
+                if(spawnInfo.Player.ZoneSnow)
                 {
                     if (spawnInfo.SpawnTileType == ModContent.TileType<CorruptSnow>() && spawnInfo.Player.ZoneCorrupt)
                     {
@@ -136,7 +136,7 @@ namespace InfectedQualities.Common.GlobalNPCs
                             }
                         }
                     }
-                    else if (spawnInfo.SpawnTileType == ModContent.TileType<HallowedSnow>() && spawnInfo.Player.ZoneHallow && Main.hardMode)
+                    else if (spawnInfo.SpawnTileType == ModContent.TileType<HallowedSnow>() && spawnInfo.Player.ZoneHallow && Main.hardMode && !spawnInfo.PlayerInTown)
                     {
                         if (spawnInfo.Player.ZoneSurface())
                         {
