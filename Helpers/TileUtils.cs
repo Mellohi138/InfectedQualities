@@ -4,7 +4,6 @@ using Terraria.ModLoader;
 
 using InfectedQualities.Common;
 using InfectedQualities.Content.Tiles;
-using Terraria.Audio;
 
 namespace InfectedQualities.Helpers
 {

@@ -161,6 +161,12 @@ namespace InfectedQualities.Content.Projectiles
                             NetMessage.SendTileSquare(-1, k, l);
                         }
                     }
+					else if (TileID.Sets.Conversion.Thorn[Main.tile[k, l].TileType] && Main.tile[k, l].TileType != TileID.JungleThorns && Main.tile[k, l].TileType != TileID.PlanteraThorns)
+                    {
+                        Main.tile[k, l].TileType = TileID.JungleThorns;
+                        WorldGen.SquareTileFrame(k, l);
+                        NetMessage.SendTileSquare(-1, k, l);
+                    }
                     else if (Main.tile[k, l].TileType == TileID.BreakableIce)
                     {
                         WorldGen.KillTile(k, l);
