@@ -217,7 +217,7 @@ namespace InfectedQualities.Common.GlobalTiles
                 {
                     if (Main.tile[i, j].TileFrameX == 144 || Main.tile[i, j].TileFrameX == 162)
                     {
-                        if (j <= Main.rockLayer)
+                        if (j <= Main.rockLayer && !Main.remixWorld)
                         {
                             WorldGen.KillTile(i, j, noItem: true);
                         }
