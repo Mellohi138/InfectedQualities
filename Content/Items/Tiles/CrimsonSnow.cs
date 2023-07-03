@@ -9,7 +9,7 @@ namespace InfectedQualities.Content.Items.Tiles
     {
         public override bool IsLoadingEnabled(Mod mod)
         {
-            return ModContent.GetInstance<InfectedQualitiesConfig.ServerConfig>().EnableInfectedSnowBiomes;
+            return ModContent.GetInstance<ServerConfig>().EnableInfectedSnowBiomes;
         }
 
         public override string Texture => "InfectedQualities/Client/Assets/Items/Tiles/CrimsonSnow";

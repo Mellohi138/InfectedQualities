@@ -9,7 +9,7 @@ namespace InfectedQualities.Common.GlobalNPCs
     {
         public override bool IsLoadingEnabled(Mod mod)
         {
-            return ModContent.GetInstance<InfectedQualitiesConfig.ServerConfig>().EnableLimeSolution;
+            return ModContent.GetInstance<ServerConfig>().EnableLimeSolution;
         }
 
         public override void ModifyShop(NPCShop shop)

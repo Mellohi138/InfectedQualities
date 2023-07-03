@@ -11,7 +11,7 @@ namespace InfectedQualities.Content.Projectiles
     {
         public override bool IsLoadingEnabled(Mod mod)
         {
-            return ModContent.GetInstance<InfectedQualitiesConfig.ServerConfig>().EnableDivinePowder;
+            return ModContent.GetInstance<ServerConfig>().EnableDivinePowder;
         }
 
         public override string Texture => "Terraria/Images/Projectile_10";

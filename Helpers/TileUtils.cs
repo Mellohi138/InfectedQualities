@@ -103,12 +103,12 @@ namespace InfectedQualities.Helpers
                             new ushort[] { TileID.CorruptIce, TileID.FleshIce, TileID.HallowedIce }
                         };
 
-                        if (ModContent.GetInstance<InfectedQualitiesConfig.ServerConfig>().EnableInfectedJungleBiomes)
+                        if (ModContent.GetInstance<ServerConfig>().EnableInfectedJungleBiomes)
                         {
                             convertedTiles[3][2] = (ushort)ModContent.TileType<HallowedJungleGrass>();
                         }
 
-                        if (ModContent.GetInstance<InfectedQualitiesConfig.ServerConfig>().EnableInfectedSnowBiomes)
+                        if (ModContent.GetInstance<ServerConfig>().EnableInfectedSnowBiomes)
                         {
                             convertedTiles[7][0] = (ushort)ModContent.TileType<CorruptSnow>();
                             convertedTiles[7][1] = (ushort)ModContent.TileType<CrimsonSnow>();
@@ -196,12 +196,12 @@ namespace InfectedQualities.Helpers
                             new ushort[] { TileID.SnowBlock, TileID.SnowBlock, TileID.SnowBlock },
                         };
 
-                        if (ModContent.GetInstance<InfectedQualitiesConfig.ServerConfig>().EnableInfectedJungleBiomes)
+                        if (ModContent.GetInstance<ServerConfig>().EnableInfectedJungleBiomes)
                         {
                             convertedTiles[0][2] = (ushort)ModContent.TileType<HallowedJungleGrass>();
                         }
 
-                        if (ModContent.GetInstance<InfectedQualitiesConfig.ServerConfig>().EnableInfectedSnowBiomes)
+                        if (ModContent.GetInstance<ServerConfig>().EnableInfectedSnowBiomes)
                         {
                             convertedTiles[1][0] = (ushort)ModContent.TileType<CorruptSnow>();
                             convertedTiles[1][1] = (ushort)ModContent.TileType<CrimsonSnow>();
@@ -235,7 +235,7 @@ namespace InfectedQualities.Helpers
                         flag = false;
                     }
 
-                    if (Main.tile[i, j].TileType != TileID.Torches)
+                    if (Main.tile[i, j].TileType == TileID.Torches)
                     {
                         flag = false;
                     }

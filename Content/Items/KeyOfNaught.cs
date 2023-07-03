@@ -10,7 +10,7 @@ namespace InfectedQualities.Content.Items
     {
         public override bool IsLoadingEnabled(Mod mod)
         {
-            return ModContent.GetInstance<InfectedQualitiesConfig.ServerConfig>().EnableKeyOfNaught;
+            return ModContent.GetInstance<ServerConfig>().EnableKeyOfNaught;
         }
 
         public override string Texture => "InfectedQualities/Client/Assets/Items/KeyOfNaught";

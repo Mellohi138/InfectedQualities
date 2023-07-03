@@ -20,7 +20,7 @@ namespace InfectedQualities.Content.Tiles
     {
         public override bool IsLoadingEnabled(Mod mod)
         {
-            return ModContent.GetInstance<InfectedQualitiesConfig.ServerConfig>().EnablePylonOfNight;
+            return ModContent.GetInstance<ServerConfig>().EnablePylonOfNight;
         }
 
         public override string Texture => "InfectedQualities/Client/Assets/Tiles/PylonOfNight";

@@ -14,7 +14,7 @@ namespace InfectedQualities.Content.Tiles.Plants
     {
         public override bool IsLoadingEnabled(Mod mod)
         {
-            return ModContent.GetInstance<InfectedQualitiesConfig.ServerConfig>().EnableInfectedJungleBiomes || ModContent.GetInstance<InfectedQualitiesConfig.ServerConfig>().EnableInfectedSnowBiomes;
+            return ModContent.GetInstance<ServerConfig>().EnableInfectedJungleBiomes || ModContent.GetInstance<ServerConfig>().EnableInfectedSnowBiomes;
         }
 
         public override string Texture => "Terraria/Images/Tiles_20";
@@ -35,12 +35,12 @@ namespace InfectedQualities.Content.Tiles.Plants
             TileObjectData.newTile.CoordinatePadding = 2;
             TileObjectData.newTile.AnchorValidTiles = new[] { -1, -1, -1, -1 };
 
-            if(ModContent.GetInstance<InfectedQualitiesConfig.ServerConfig>().EnableInfectedJungleBiomes)
+            if(ModContent.GetInstance<ServerConfig>().EnableInfectedJungleBiomes)
             {
                 TileObjectData.newTile.AnchorValidTiles[0] = ModContent.TileType<HallowedJungleGrass>();
             }
 			
-			if(ModContent.GetInstance<InfectedQualitiesConfig.ServerConfig>().EnableInfectedSnowBiomes) {
+			if(ModContent.GetInstance<ServerConfig>().EnableInfectedSnowBiomes) {
 				TileObjectData.newTile.AnchorValidTiles[1] = ModContent.TileType<HallowedSnow>();
 				TileObjectData.newTile.AnchorValidTiles[2] = ModContent.TileType<CorruptSnow>();
 				TileObjectData.newTile.AnchorValidTiles[3] = ModContent.TileType<CrimsonSnow>();

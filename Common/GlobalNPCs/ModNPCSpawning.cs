@@ -12,12 +12,12 @@ namespace InfectedQualities.Common.GlobalNPCs
     {
         public override bool IsLoadingEnabled(Mod mod)
         {
-            return ModContent.GetInstance<InfectedQualitiesConfig.ServerConfig>().EnableInfectedJungleBiomes || ModContent.GetInstance<InfectedQualitiesConfig.ServerConfig>().EnableInfectedSnowBiomes;
+            return ModContent.GetInstance<ServerConfig>().EnableInfectedJungleBiomes || ModContent.GetInstance<ServerConfig>().EnableInfectedSnowBiomes;
         }
 
         public override void EditSpawnPool(IDictionary<int, float> pool, NPCSpawnInfo spawnInfo)
         {
-            if(ModContent.GetInstance<InfectedQualitiesConfig.ServerConfig>().EnableInfectedJungleBiomes)
+            if(ModContent.GetInstance<ServerConfig>().EnableInfectedJungleBiomes)
             {
                 if (spawnInfo.SpawnTileType == ModContent.TileType<HallowedJungleGrass>())
                 {
@@ -48,7 +48,7 @@ namespace InfectedQualities.Common.GlobalNPCs
                 }
             }
 
-            if (ModContent.GetInstance<InfectedQualitiesConfig.ServerConfig>().EnableInfectedSnowBiomes)
+            if (ModContent.GetInstance<ServerConfig>().EnableInfectedSnowBiomes)
             {
                 if(spawnInfo.Player.ZoneSnow)
                 {

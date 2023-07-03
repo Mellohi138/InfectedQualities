@@ -14,7 +14,7 @@ namespace InfectedQualities.Common.GlobalTiles
     {
         public override bool IsLoadingEnabled(Mod mod)
         {
-            return ModContent.GetInstance<InfectedQualitiesConfig.ServerConfig>().EnableInfectedSnowBiomes;
+            return ModContent.GetInstance<ServerConfig>().EnableInfectedSnowBiomes;
         }
 
         public override void Load()
@@ -329,7 +329,7 @@ namespace InfectedQualities.Common.GlobalTiles
 
         public override bool TileFrame(int i, int j, int type, ref bool resetFrame, ref bool noBreak)
         {
-            if(ModContent.GetInstance<InfectedQualitiesConfig.ClientConfig>().EnableSmoothSnowIceBlending)
+            if(ModContent.GetInstance<ClientConfig>().EnableSmoothSnowIceBlending)
             {
                 if (type == TileID.CorruptIce || type == TileID.FleshIce || type == TileID.HallowedIce)
                 {

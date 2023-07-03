@@ -9,7 +9,7 @@ namespace InfectedQualities.Content.Items
     {
         public override bool IsLoadingEnabled(Mod mod)
         {
-            return ModContent.GetInstance<InfectedQualitiesConfig.ServerConfig>().EnableDivinePowder;
+            return ModContent.GetInstance<ServerConfig>().EnableDivinePowder;
         }
 
         public override string Texture => "InfectedQualities/Client/Assets/Items/DivinePowder";

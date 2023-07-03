@@ -13,7 +13,7 @@ namespace InfectedQualities.Content.Biomes
     {
         public override bool IsLoadingEnabled(Mod mod)
         {
-            return ModContent.GetInstance<InfectedQualitiesConfig.ServerConfig>().EnableInfectedJungleBiomes;
+            return ModContent.GetInstance<ServerConfig>().EnableInfectedJungleBiomes;
         }
 
         public override int Music => -1;

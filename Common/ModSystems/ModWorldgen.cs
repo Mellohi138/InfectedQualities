@@ -14,7 +14,7 @@ namespace InfectedQualities.Common.ModSystems
             {
                 int hardmodeGood = list.FindIndex(genPass => genPass.Name.Equals("Hardmode Good"));
                 int i = 1;
-                if (ModContent.GetInstance<InfectedQualitiesConfig.ServerConfig>().EnableHardmodeChasmPurification)
+                if (ModContent.GetInstance<ServerConfig>().EnableHardmodeChasmPurification)
                 {
                     list.Insert(hardmodeGood + i, new WorldGenChasmPurifyer());
                     i++;

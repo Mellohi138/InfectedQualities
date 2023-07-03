@@ -12,7 +12,7 @@ namespace InfectedQualities.Content.Tiles
     {
         public override bool IsLoadingEnabled(Mod mod)
         {
-            return ModContent.GetInstance<InfectedQualitiesConfig.ServerConfig>().EnableInfectedSnowBiomes;
+            return ModContent.GetInstance<ServerConfig>().EnableInfectedSnowBiomes;
         }
 
         public override string Texture => "InfectedQualities/Client/Assets/Tiles/CorruptSnow";
@@ -24,7 +24,7 @@ namespace InfectedQualities.Content.Tiles
             Main.tileBrick[Type] = true;
             Main.tileMergeDirt[Type] = true;
             Main.tileMerge[TileID.Dirt][Type] = true;
-            if(!ModContent.GetInstance<InfectedQualitiesConfig.ClientConfig>().EnableSmoothSnowIceBlending)
+            if(!ModContent.GetInstance<ClientConfig>().EnableSmoothSnowIceBlending)
             {
                 TileFramer.ApplyTileMerge(Type, TileID.CorruptIce);
             }
@@ -83,7 +83,7 @@ namespace InfectedQualities.Content.Tiles
 
         public override bool TileFrame(int i, int j, ref bool resetFrame, ref bool noBreak)
         {
-            if(ModContent.GetInstance<InfectedQualitiesConfig.ClientConfig>().EnableSmoothSnowIceBlending)
+            if(ModContent.GetInstance<ClientConfig>().EnableSmoothSnowIceBlending)
             {
                 TileFramer.GetTileSurroundings(i, j, out int upLeft, out int up, out int upRight, out int left, out int right, out int downLeft, out int down, out int downRight);
 

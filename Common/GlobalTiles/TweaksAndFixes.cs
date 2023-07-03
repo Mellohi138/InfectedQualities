@@ -202,7 +202,7 @@ namespace InfectedQualities.Common.GlobalTiles
 
         public override bool TileFrame(int i, int j, int type, ref bool resetFrame, ref bool noBreak)
         {
-            if (ModContent.GetInstance<InfectedQualitiesConfig.ServerConfig>().RemoveThorns)
+            if (ModContent.GetInstance<ServerConfig>().RemoveThorns)
             {
                 if (TileID.Sets.Conversion.Thorn[type] && type != TileID.PlanteraThorns)
                 {
@@ -211,7 +211,7 @@ namespace InfectedQualities.Common.GlobalTiles
                 }
             }
 
-            if (ModContent.GetInstance<InfectedQualitiesConfig.ServerConfig>().EnableLimeSolution)
+            if (ModContent.GetInstance<ServerConfig>().EnableLimeSolution)
             {
                 if (type == TileID.JunglePlants)
                 {
@@ -264,7 +264,7 @@ namespace InfectedQualities.Common.GlobalTiles
 
         public override void NearbyEffects(int i, int j, int type, bool closer)
         {
-            if (ModContent.GetInstance<InfectedQualitiesConfig.ServerConfig>().RemoveThorns)
+            if (ModContent.GetInstance<ServerConfig>().RemoveThorns)
             {
                 if (TileID.Sets.Conversion.Thorn[type] && type != TileID.PlanteraThorns)
                 {

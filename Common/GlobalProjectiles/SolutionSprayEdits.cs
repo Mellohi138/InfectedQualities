@@ -44,7 +44,7 @@ namespace InfectedQualities.Common.GlobalProjectiles
                             }
                         }
 
-                        if (ModContent.GetInstance<InfectedQualitiesConfig.ServerConfig>().EnableInfectedSnowBiomes)
+                        if (ModContent.GetInstance<ServerConfig>().EnableInfectedSnowBiomes)
                         {
                             if (convertType == BiomeConversionID.Purity)
                             {
@@ -103,7 +103,7 @@ namespace InfectedQualities.Common.GlobalProjectiles
 
                         if (convertType == BiomeConversionID.Hallow)
                         {
-                            ushort jungleGrass = ModContent.GetInstance<InfectedQualitiesConfig.ServerConfig>().EnableInfectedJungleBiomes ? (ushort)ModContent.TileType<HallowedJungleGrass>() : TileID.JungleGrass;
+                            ushort jungleGrass = ModContent.GetInstance<ServerConfig>().EnableInfectedJungleBiomes ? (ushort)ModContent.TileType<HallowedJungleGrass>() : TileID.JungleGrass;
 
                             if (TileID.Sets.Conversion.JungleGrass[Main.tile[k, l].TileType] && Main.tile[k, l].TileType != jungleGrass)
                             {
@@ -114,7 +114,7 @@ namespace InfectedQualities.Common.GlobalProjectiles
                             }
                         }
 
-                        if (ModContent.GetInstance<InfectedQualitiesConfig.ServerConfig>().EnableLimeSolution)
+                        if (ModContent.GetInstance<ServerConfig>().EnableLimeSolution)
                         {
                             switch (convertType)
                             {

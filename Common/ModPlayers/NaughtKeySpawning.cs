@@ -10,7 +10,7 @@ namespace InfectedQualities.Common.ModPlayers
 		//Most of the code here was taken from the Confection's source code, credits belong to their respective owners
         public override bool IsLoadingEnabled(Mod mod)
         {
-            return ModContent.GetInstance<InfectedQualitiesConfig.ServerConfig>().EnableKeyOfNaught;
+            return ModContent.GetInstance<ServerConfig>().EnableKeyOfNaught;
         }
 
         private int LastChest = -1;
