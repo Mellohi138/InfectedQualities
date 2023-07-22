@@ -50,7 +50,7 @@ namespace InfectedQualities.Content.Tiles
 
         public override bool TileFrame(int i, int j, ref bool resetFrame, ref bool noBreak)
         {
-            if (TileUtils.LavaCheck(i, j))
+            if (TileUtils.TileExposedToLava(i, j))
             {
                 Main.tile[i, j].TileType = TileID.Mud;
                 WorldGen.SquareTileFrame(i, j);

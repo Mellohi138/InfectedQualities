@@ -29,22 +29,16 @@ namespace InfectedQualities.Content.Tiles
         private static Asset<Texture2D> crystalHighlightTexture;
         private static Asset<Texture2D> mapIcon;
 
-        private static Color PylonColor;
+        private static Color PylonColor
+        {
+            get;
+        } = new(162, 95, 234);
 
         public override void Load()
         {
             crystalTexture = ModContent.Request<Texture2D>("InfectedQualities/Client/Assets/Tiles/PylonOfNight_Crystal");
             crystalHighlightTexture = ModContent.Request<Texture2D>("InfectedQualities/Client/Assets/Tiles/Pylon_CrystalHighlight");
             mapIcon = ModContent.Request<Texture2D>("InfectedQualities/Client/Assets/PylonOfNight_MapIcon");
-
-            PylonColor = new(162, 95, 234);
-        }
-
-        public override void Unload()
-        {
-            crystalTexture = null;
-            crystalHighlightTexture = null;
-            mapIcon = null;
         }
 
         public override void SetStaticDefaults()

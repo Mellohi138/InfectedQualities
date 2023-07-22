@@ -13,7 +13,7 @@ namespace InfectedQualities.Helpers
         {
             if(Main.remixWorld)
             {
-                return TileRemixCavern(y);
+                return y >= Main.worldSurface && y < Main.rockLayer;
             }
             return y >= Main.worldSurface;
         }
@@ -22,14 +22,9 @@ namespace InfectedQualities.Helpers
         {
             if (Main.remixWorld)
             {
-                return TileRemixCavern(y);
+                return y >= Main.worldSurface && y < Main.rockLayer;
             }
             return y >= Main.rockLayer;
-        }
-
-        private static bool TileRemixCavern(int y)
-        {
-            return y >= Main.worldSurface && y < Main.rockLayer;
         }
 
         public static bool TileIsExposedToAir(int x, int y, int fluff = 1)
@@ -38,10 +33,13 @@ namespace InfectedQualities.Helpers
             {
                 for (int j = y - fluff; j <= y + fluff; j++)
                 {
-                    Tile tile = Main.tile[i, j];
-                    if (!tile.HasTile || !Main.tileSolid[tile.TileType] || TileID.Sets.Platforms[tile.TileType])
+                    if (i != x && j != y)
                     {
-                        return true;
+                        Tile tile = Main.tile[i, j];
+                        if (!tile.HasTile || !Main.tileSolid[tile.TileType] || TileID.Sets.Platforms[tile.TileType])
+                        {
+                            return true;
+                        }
                     }
                 }
             }
@@ -49,11 +47,21 @@ namespace InfectedQualities.Helpers
             return false;
         }
 
-        public static bool LavaCheck(int i, int j)
+        public static bool TileExposedToLava(int i, int j)
         {
-            if (Main.tile[i, j - 1].LiquidType == LiquidID.Lava || Main.tile[i + 1, j].LiquidType == LiquidID.Lava || Main.tile[i - 1, j].LiquidType == LiquidID.Lava || Main.tile[i + 1, j - 1].LiquidType == LiquidID.Lava || Main.tile[i - 1, j - 1].LiquidType == LiquidID.Lava)
+            for(int x = i - 1; x <= i + 1; x++)
             {
-                return true;
+                for (int y = j - 1; y <= j + 1; y++)
+                {
+                    if(x != i && y != j)
+                    {
+                        Tile tile = Main.tile[x, y];
+                        if (tile.LiquidAmount > 0 && tile.LiquidType == LiquidID.Lava)
+                        {
+                            return true;
+                        }
+                    }
+                }
             }
             return false;
         }
@@ -151,6 +159,10 @@ namespace InfectedQualities.Helpers
                         {
                             if (Main.tile[x, y].WallType == wallsToConvert[wallIndex])
                             {
+                                if (!ModContent.GetInstance<ServerConfig>().EnableInfectedJungleBiomes && convertedWalls[ID] == WallID.HallowedGrassUnsafe)
+                                {
+                                    return;
+                                }
                                 Main.tile[x, y].WallType = convertedWalls[ID];
                                 WorldGen.SquareWallFrame(x, y);
                                 if (Main.netMode == NetmodeID.Server)

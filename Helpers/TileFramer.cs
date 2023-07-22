@@ -7,10 +7,10 @@ namespace InfectedQualities.Helpers
 {
     public class TileFramer
     {
-        public static bool mergeUp;
-        public static bool mergeDown;
-        public static bool mergeLeft;
-        public static bool mergeRight;
+        private static bool mergeUp;
+        private static bool mergeDown;
+        private static bool mergeLeft;
+        private static bool mergeRight;
 
         public static void ApplyTileMerge(ushort tileFrom, ushort tileTo, bool merge = true)
         {
@@ -49,10 +49,6 @@ namespace InfectedQualities.Helpers
         {
             Tile tile = Main.tile[i, j];
             int num = tile.TileType;
-            if (Main.tileStone[num])
-            {
-                num = 1;
-            }
 
             Tile tile38 = Main.tile[i, j - 1];
             Tile tile39 = Main.tile[i, j + 1];

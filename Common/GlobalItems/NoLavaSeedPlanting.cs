@@ -9,7 +9,7 @@ namespace InfectedQualities.Common.GlobalItems
     {
         public override bool CanUseItem(Item item, Player player)
         {
-            if (player.IsTargetTileInItemRange(item) && TileUtils.LavaCheck(Player.tileTargetX, Player.tileTargetY))
+            if (player.IsTargetTileInItemRange(item) && TileUtils.TileExposedToLava(Player.tileTargetX, Player.tileTargetY))
             {
                 return false;
             }
