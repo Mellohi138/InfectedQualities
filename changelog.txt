@@ -1,3 +1,7 @@
+0.7.4.8
+=======
+-Russian translation has been updated by alinahvoshch
+
 0.7.4.7
 =======
 -New API changes on tModLoader, thus new code changes in here along with it. Registered snow blocks and gemstone blocks to a new list that allows infection blocks to spread over to them.
