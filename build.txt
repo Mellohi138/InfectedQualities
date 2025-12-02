@@ -1,5 +1,5 @@
 displayName = Infected Qualities
 author = Mellohi
-version = 0.7.4.7
+version = 0.7.4.8
 includeSource = true
 homepage = https://github.com/Mellohi138/InfectedQualities

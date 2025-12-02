@@ -26,7 +26,6 @@ namespace InfectedQualities.Common
 
 			TileID.Sets.Crimson[TileID.CrimsonPlants] = true;
 			TileID.Sets.Crimson[TileID.CrimsonThorns] = true;
-			TileID.Sets.AddCrimsonTile(TileID.CrimsonPlants);
 			TileID.Sets.AddCrimsonTile(TileID.CrimsonVines);
 			TileID.Sets.CrimsonCountCollection.Remove(TileID.CrimsonPlants);
 			TileID.Sets.CrimsonCountCollection.Remove(TileID.CrimsonThorns);

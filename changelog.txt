@@ -1,6 +1,7 @@
 0.7.4.8
 =======
 -Russian translation has been updated by alinahvoshch
+-Crimson plants used to not contribute to crimson block count in previous versions and this mod fixed that, but with this new update tModLoader fixed that and so the fix from this mods end is removed
 
 0.7.4.7
 =======
