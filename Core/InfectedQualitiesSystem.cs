@@ -12,7 +12,7 @@ namespace InfectedQualities.Core
     {
         public override void AddRecipes()
         {
-            if(InfectedQualitiesModSupport.CalamityMod == null && !ModLoader.HasMod("ThoriumMod"))
+            if(!ModLoader.HasMod("CalamityQoLRestored") && !ModLoader.HasMod("ThoriumMod"))
             {
                 Recipe.Create(ItemID.Leather)
                     .AddIngredient(ItemID.Vertebrae, 5)

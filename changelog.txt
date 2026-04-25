@@ -2,6 +2,10 @@
 =======
 -Russian translation has been updated by alinahvoshch
 -Crimson plants used to not contribute to crimson block count in previous versions and this mod fixed that, but with this new update tModLoader fixed that and so the fix from this mods end is removed
+-Made Hallowed Jungle Grass not convertible by Mushroom Grass
+-Hallowed Jungle Grass now counts as 2 Jungle tiles instead of 1
+-A lot of IL adjustments, ever since the new biome spread changes came around some of turned out to be no longer needed
+-Removed duplicate recipe check for CalamityMod, as Calamity purged their QOL features. In it's place, it now checks for the "CalamityQoLRestored" instead
 
 0.7.4.7
 =======

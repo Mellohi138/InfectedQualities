@@ -31,7 +31,7 @@ namespace InfectedQualities.Content.Tiles
             TileID.Sets.HallowBiomeSight[Type] = true;
             TileID.Sets.HallowCountCollection.Add(Type);
 
-            TileID.Sets.AddJungleTile(Type);
+            TileID.Sets.AddJungleTile(Type, 2);
             TileID.Sets.Conversion.JungleGrass[Type] = true;
 
             HitSound = SoundID.Grass;
@@ -40,6 +40,7 @@ namespace InfectedQualities.Content.Tiles
             AddMapEntry(new(78, 193, 227));
 
 			TileLoader.RegisterSimpleConversion(TileID.JungleGrass, BiomeConversionID.Hallow, Type);
+            TileLoader.RegisterConversionFallback(Type, TileID.JungleGrass, BiomeConversionID.Hallow, BiomeConversionID.GlowingMushroom);
 			VanillaFallbackOnModDeletion = TileID.JungleGrass;
 		}
 
