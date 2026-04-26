@@ -270,12 +270,9 @@ public static class InfectedQualitiesModSupport
             {
                 if(Main.drunkWorld)
                 {
-                    if(WorldGen.crimson) return false;
-
-                    string drunkEviName = (string)biomeManager.GetField("drunkEvilName", BindingFlags.Static | BindingFlags.NonPublic).GetValue(null);
-                    return drunkEviName != "Terraria/Corruption";
+                    return biomeManager.GetMethod("GetDrunkEvil", BindingFlags.Static).Invoke(null, [false]) != null;
                 }
-                return (string)biomeManager.GetProperty("WorldEvilName").GetValue(null) != "";
+                return (bool)biomeManager.GetProperty("IsAnyModdedEvil").GetValue(null) == true;
             }
         }
         return false;
